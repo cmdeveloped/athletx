@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+// styles
 import './styles/all.min.css';
 
 class App extends Component {
