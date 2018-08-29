@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-class Splash extends Component {
+class Landing extends Component {
 
   render() {
     return (
-      <div id="splash">
+      <div id="landing">
         <h1>AthletX</h1>
         <Link to={ '/login' }>Login</Link>
         <Link to={ '/register' }>Register</Link>
@@ -15,4 +15,4 @@ class Splash extends Component {
 
 }
 
-export default Splash;
+export default Landing;
