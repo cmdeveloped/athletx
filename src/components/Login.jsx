@@ -23,7 +23,6 @@ class Login extends Component {
     e.preventDefault();
     const email = this.state.email
     const password = this.state.password
-    console.log(this.state)
     auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         this.setState({

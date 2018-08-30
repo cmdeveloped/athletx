@@ -27,6 +27,7 @@ class App extends Component {
       } else {
         this.setState({ currentUser: null })
       }
+      console.log(this.state)
     })
   }
 
