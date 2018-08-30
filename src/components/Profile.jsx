@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import { UserConsumer } from './Context'
 
 class Profile extends Component {
-  constructor() {
-    super()
-    this.state = {
-      currentUser: null
-    }
-  }
 
   render() {
     return (
-      <div id="profile">
-
-      </div>
+      <UserConsumer>
+        {user =>
+          <div id="profile">
+            { user.displayName }
+          </div>
+        }
+      </UserConsumer>
     );
   }
 }

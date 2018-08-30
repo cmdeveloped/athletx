@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { auth } from '../firebase'
 
 class Login extends Component {
@@ -22,7 +23,17 @@ class Login extends Component {
     e.preventDefault();
     const email = this.state.email
     const password = this.state.password
+    console.log(this.state)
     auth.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.setState({
+          email: '',
+          password: '',
+        })
+      })
+      .then(() => {
+        this.props.history.push('/');
+      })
       .catch((error) => {
         alert(error.message)
       })
@@ -43,4 +54,4 @@ class Login extends Component {
 
 }
 
-export default Login;
+export default withRouter(Login);
