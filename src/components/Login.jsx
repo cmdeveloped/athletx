@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { auth } from '../firebase'
 
+import { Button, TextField } from '@material-ui/core'
+
 class Login extends Component {
   constructor() {
     super()
@@ -43,9 +45,9 @@ class Login extends Component {
       <div id="login">
         <h2>Login</h2>
         <form className="login" onSubmit={ this.handleSubmit }>
-          <input type="text" name="email" placeholder="Email Address" onChange={ this.handleChange } value={ this.state.email } />
-          <input type="password" name="password" placeholder="Password" onChange={ this.handleChange } value={ this.state.password } />
-          <input type="submit" value="Login" />
+          <TextField type="text" name="email" label="Email Address" onChange={ this.handleChange } value={ this.state.email } />
+          <TextField type="password" name="password" label="Password" onChange={ this.handleChange } value={ this.state.password } />
+          <Button type="submit" value="Login">Login</Button>
         </form>
       </div>
     );
