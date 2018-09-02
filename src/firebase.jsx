@@ -11,8 +11,20 @@ const config = {
 firebase.initializeApp(config);
 
 const auth = firebase.auth()
+const db = firebase.firestore()
+const settings = { timestampsInSnapshots: true }
+const currentUser = auth.currentUser
+db.settings(settings);
+
+// collections
+const users = db.collection('users')
+const sports = db.collection('sports')
 
 export {
   auth,
+  db,
+  currentUser,
+  users,
+  sports,
   firebase
 }

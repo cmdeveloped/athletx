@@ -8,15 +8,11 @@ import { Button } from '@material-ui/core'
 class Header extends Component {
   constructor() {
     super()
-
     this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleLogout(e) {
     auth.signOut()
-      .then(() => {
-        console.log('Successfully Logged Out')
-      })
       .then(() => {
         this.props.history.push('/')
       })

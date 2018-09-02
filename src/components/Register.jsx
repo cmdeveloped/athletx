@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { auth } from '../firebase'
+import { auth, currentUser } from '../firebase'
 
 import { Button, TextField } from '@material-ui/core'
 
@@ -29,17 +29,16 @@ class Register extends Component {
     const password = this.state.password
     auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
-        user = auth.currentUser
+        user = currentUser
         user.sendEmailVerification()
+        user.updateProfile({ displayName: username })
       })
       .then(() => {
-        user.updateProfile({ displayName: username })
         this.setState({
           username: '',
           email: '',
           password: ''
         })
-        console.log(user)
       })
       .catch((error) => {
         alert(error.message)

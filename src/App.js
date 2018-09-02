@@ -22,7 +22,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({ currentUser: user })
@@ -33,7 +33,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(theme)
     return (
       <MuiThemeProvider theme={ theme }>
         <UserProvider value={this.state.currentUser}>
